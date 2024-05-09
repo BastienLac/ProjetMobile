@@ -1,8 +1,10 @@
-package fr.android.projetmobile;
+package fr.android.projetmobile.vue;
 
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import fr.android.projetmobile.R;
 
 public class MapActivity extends AppCompatActivity {
 

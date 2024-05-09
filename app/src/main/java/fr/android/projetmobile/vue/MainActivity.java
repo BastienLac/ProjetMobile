@@ -1,13 +1,14 @@
-package fr.android.projetmobile;
+package fr.android.projetmobile.vue;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.IOException;
+
+import fr.android.projetmobile.R;
 
 public class MainActivity extends AppCompatActivity {
 
