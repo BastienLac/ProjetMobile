@@ -22,4 +22,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MapActivity.class);
         startActivity(intent);
     }
+
+    public void CreateJourney(View view) {
+        Intent intent = new Intent(MainActivity.this, CreateJourneyActivity.class);
+        startActivity(intent);
+    }
+
+    public void DisplayJourney(View view) {
+        Intent intent = new Intent(MainActivity.this, DisplayJourneyActivity.class);
+        startActivity(intent);
+    }
 }

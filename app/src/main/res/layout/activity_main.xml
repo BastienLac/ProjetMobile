@@ -20,7 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/start_voyage"
-        android:onClick="myClickHandler"
+        android:onClick="CreateJourney"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnDisplayJourney"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/display_voyage"
+        android:onClick="DisplayJourney"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"/>
 
@@ -29,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/last_voyages"
-        android:onClick="myClickHandler"
+        android:onClick="MyClickHandler"
         android:textSize="18sp"
         android:layout_marginBottom="16dp"/>
 

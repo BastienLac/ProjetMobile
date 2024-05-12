@@ -21,6 +21,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".vue.CreateJourneyActivity"
+            android:label="Create journey">
+        </activity>
+
+        <activity
+            android:name=".vue.DisplayJourneyActivity"
+            android:label="Display journey">
+        </activity>
     </application>
 
 </manifest>
