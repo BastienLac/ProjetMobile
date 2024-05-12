@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickMap(View view) throws IOException {
-        Intent intent = new Intent(MainActivity.this, MapActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
         startActivity(intent);
     }
 
