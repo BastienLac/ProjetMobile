@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenue dans votre Journal de Voyage"
+        android:text="@string/welcome_trip"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"

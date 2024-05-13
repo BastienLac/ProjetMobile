@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">ProjetMobile</string>
+    <string name="app_name" translatable="false">ProjetMobile</string>
     <string name="start_voyage">Commencer un Nouveau Voyage</string>
     <string name="display_voyage">Consulter vos Voyages</string>
     <string name="last_voyages">Voir les Voyages Précédents</string>
     <string name="access_map">Accéder à la Carte</string>
     <string name="delete">Supprimer</string>
+    <string name="welcome_trip">Bienvenue dans votre Journal de Voyage</string>
 </resources>

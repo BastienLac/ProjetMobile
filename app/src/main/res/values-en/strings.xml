@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_voyage">Start a new trip</string>
+    <string name="display_voyage">Consult your trips</string>
+    <string name="last_voyages">See last trips</string>
+    <string name="access_map">Go to map</string>
+    <string name="delete">Delete</string>
+    <string name="welcome_trip">Welcome to your Travel Journal</string>
+</resources>
