@@ -45,65 +45,19 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else if (id == R.id.take_photo) {
-                    intent = new Intent(MainActivity.this, MapsActivity.class);
+                    intent = new Intent(MainActivity.this, PhotosActivity.class);
                     startActivity(intent);
                 }
                 else if (id == R.id.gallery) {
-                    intent = new Intent(MainActivity.this, MapsActivity.class);
-                    startActivity(intent);
+                    //intent = new Intent(MainActivity.this, .class);
+                    //startActivity(intent);
                 }
                 else if (id == R.id.form) {
-                    intent = new Intent(MainActivity.this, MapsActivity.class);
+                    intent = new Intent(MainActivity.this, CreateJourneyActivity.class);
                     startActivity(intent);
                 }
                 return false;
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bottom_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.voyage) {
-
-            Intent display_journey_intent = new Intent(this, DisplayJourneyActivity.class);
-            startActivity(display_journey_intent);
-
-            return true;
-        } else if (id == R.id.maps) {
-
-            Intent maps_intent = new Intent(this, MapsActivity.class);
-            startActivity(maps_intent);
-
-            return true;
-        } else if (id == R.id.take_photo) {
-
-            Intent photos_intent = new Intent(this, PhotosActivity.class);
-            startActivity(photos_intent);
-
-            return true;
-        } else if (id == R.id.gallery) {
-
-            //Intent gallery_intent = new Intent(this, EnterURLActivity.class);
-            //startActivity(gallery_intent);
-
-            return true;
-        } else if (id == R.id.form) {
-
-            Intent form_intent = new Intent(this, CreateJourneyActivity.class);
-            startActivity(form_intent);
-
-            return true;
-
-
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

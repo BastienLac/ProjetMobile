@@ -1,5 +1,6 @@
 package fr.android.projetmobile.vue;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,8 +22,10 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.net.Uri;
 import android.os.Build;
-import java.io.OutputStream;
 import fr.android.projetmobile.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.io.OutputStream;
 public class PhotosActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 100;
@@ -50,6 +54,37 @@ public class PhotosActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intent, 100);
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Gérer les clics sur les éléments du menu ici
+                int id = item.getItemId();
+                Intent intent = null;
+                if (id == R.id.voyage) {
+                    intent = new Intent(PhotosActivity.this, DisplayJourneyActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.maps) {
+                    intent = new Intent(PhotosActivity.this, MapsActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.take_photo) {
+                    intent = new Intent(PhotosActivity.this, PhotosActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.gallery) {
+                    //intent = new Intent(MainActivity.this, .class);
+                    //startActivity(intent);
+                }
+                else if (id == R.id.form) {
+                    intent = new Intent(PhotosActivity.this, CreateJourneyActivity.class);
+                    startActivity(intent);
+                }
+                return false;
             }
         });
 

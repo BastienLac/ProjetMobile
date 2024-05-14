@@ -44,18 +44,20 @@
 
         <activity
             android:name=".vue.CreateJourneyActivity"
+            android:theme="@style/Theme.BottomNavigation"
             android:label="Create journey">
         </activity>
 
         <activity
             android:name=".vue.DisplayJourneyActivity"
+            android:theme="@style/Theme.BottomNavigation"
             android:label="Display journey">
         </activity>
 
         <activity
-            android:name=".vue.PhotoActivity"
+            android:name=".vue.PhotosActivity"
             android:theme="@style/Theme.BottomNavigation"
-            android:label="Photo Activity">
+            android:label="Photos Activity">
         </activity>
 
     </application>
