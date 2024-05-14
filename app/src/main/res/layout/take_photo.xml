@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bleu0"
-    tools:context=".vue.PhotoActivity">
+    tools:context=".vue.PhotosActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:text="@string/appuyez"
             android:onClick="takePhoto"
+            android:backgroundTint="@color/bleu2"
             app:layout_constraintTop_toBottomOf="@id/Title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -39,7 +40,6 @@
             android:id="@+id/imageViewFromPhoto"
             android:layout_width="340dp"
             android:layout_height="500dp"
-            android:src="@tools:sample/avatars"
             app:layout_constraintTop_toBottomOf="@id/take_photo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

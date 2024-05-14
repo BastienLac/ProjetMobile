@@ -1,5 +1,6 @@
 package fr.android.projetmobile.vue;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.Manifest;
 import android.content.ContentResolver;
@@ -20,31 +22,25 @@ import android.net.Uri;
 import android.os.Build;
 import java.io.OutputStream;
 import fr.android.projetmobile.R;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class PhotoActivity extends AppCompatActivity {
+public class PhotosActivity extends AppCompatActivity {
 
     private static final int REQUEST_IMAGE_CAPTURE = 100;
     private static final int REQUEST_PERMISSIONS = 2;
     ImageView imageview;
-    FloatingActionButton button;
+    Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.take_photo);
 
         imageview = findViewById(R.id.imageViewFromPhoto);
         button = findViewById(R.id.take_photo);
 
-        if (ContextCompat.checkSelfPermission(PhotoActivity.this, Manifest.permission.CAMERA)
+        if (ContextCompat.checkSelfPermission(PhotosActivity.this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(PhotoActivity.this, new String[]{
+            ActivityCompat.requestPermissions(PhotosActivity.this, new String[]{
                     Manifest.permission.CAMERA
             }, 100);
         }
