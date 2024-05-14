@@ -6,6 +6,12 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
         android:maxSdkVersion="32"/>
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -44,6 +50,13 @@
             android:name=".vue.DisplayJourneyActivity"
             android:label="Display journey">
         </activity>
+
+        <activity
+            android:name=".vue.PhotoActivity"
+            android:theme="@style/Theme.BottomNavigation"
+            android:label="Photo Activity">
+        </activity>
+
     </application>
 
 </manifest>

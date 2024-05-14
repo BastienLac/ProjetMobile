@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/voyage"
+        android:title="@string/Voyages"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/maps"
+        android:title="@string/maps"
+        android:icon="@drawable/baseline_map_24"/>
+
+    <item
+        android:id="@+id/take_photo"
+        android:title="@string/photo"
+        android:icon="@drawable/baseline_add_a_photo_24"/>
+
+    <item
+        android:id="@+id/gallery"
+        android:title="@string/gallery"
+        android:icon="@drawable/baseline_collections_24"/>
+
+    <item
+        android:id="@+id/form"
+        android:title="@string/form"
+        android:icon="@drawable/baseline_data_usage_24"/>
+
+</menu>

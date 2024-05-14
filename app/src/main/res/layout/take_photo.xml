@@ -18,54 +18,32 @@
             android:id="@+id/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Créer un voyage"
+            android:text="@string/prenez_une_photo"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/journeyTitle"
-            android:layout_width="0dp"
+
+        <Button
+            android:id="@+id/take_photo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Titre du voyage"
-            android:inputType="text"
-            android:minHeight="48dp"
+            android:text="@string/appuyez"
+            android:onClick="takePhoto"
             app:layout_constraintTop_toBottomOf="@id/Title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <EditText
-            android:id="@+id/journeyBudget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Budget"
-            android:inputType="numberDecimal"
-            android:minHeight="48dp"
+        <ImageView
+            android:id="@+id/imageViewFromPhoto"
+            android:layout_width="340dp"
+            android:layout_height="500dp"
+            android:src="@tools:sample/avatars"
+            app:layout_constraintTop_toBottomOf="@id/take_photo"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/journeyTitle" />
-
-        <EditText
-            android:id="@+id/journeyDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:inputType="textMultiLine"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/journeyBudget" />
-
-        <Button
-            android:id="@+id/validateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Valider"
-            android:onClick="validateJourney"
-            app:layout_constraintTop_toBottomOf="@id/journeyDescription"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:contentDescription="@string/take_photo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
