@@ -2,11 +2,13 @@ package fr.android.projetmobile.vue;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import fr.android.projetmobile.R;
 import fr.android.projetmobile.databinding.ActivityMapsBinding;
@@ -44,7 +47,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // 1- Request access to the location service
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
 
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Gérer les clics sur les éléments du menu ici
+                int id = item.getItemId();
+                Intent intent = null;
+                if (id == R.id.voyage) {
+                    intent = new Intent(MapsActivity.this, DisplayJourneyActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.maps) {
+                    intent = new Intent(MapsActivity.this, MapsActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.take_photo) {
+                    intent = new Intent(MapsActivity.this, PhotosActivity.class);
+                    startActivity(intent);
+                }
+                else if (id == R.id.gallery) {
+                    //intent = new Intent(MainActivity.this, .class);
+                    //startActivity(intent);
+                }
+                else if (id == R.id.form) {
+                    intent = new Intent(MapsActivity.this, CreateJourneyActivity.class);
+                    startActivity(intent);
+                }
+                return false;
+            }
+        });
     }
 
     @SuppressLint("MissingPermission")
