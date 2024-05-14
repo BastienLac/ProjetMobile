@@ -17,6 +17,8 @@ public class NavigationUtils {
             intent = new Intent(currentActivity, MapsActivity.class);
         } else if (itemId == R.id.take_photo) {
             intent = new Intent(currentActivity, PhotosActivity.class);
+        } else if (itemId == R.id.gallery) {
+            intent = new Intent(currentActivity, GalleryActivity.class);
         } else if (itemId == R.id.form) {
             intent = new Intent(currentActivity, CreateJourneyActivity.class);
         }
