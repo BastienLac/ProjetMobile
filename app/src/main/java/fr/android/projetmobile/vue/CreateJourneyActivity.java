@@ -39,53 +39,47 @@ public class CreateJourneyActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Gérer les clics sur les éléments du menu ici
-                int id = item.getItemId();
-                Intent intent = null;
-                if (id == R.id.voyage) {
-                    intent = new Intent(CreateJourneyActivity.this, DisplayJourneyActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.maps) {
-                    intent = new Intent(CreateJourneyActivity.this, MapsActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.take_photo) {
-                    intent = new Intent(CreateJourneyActivity.this, PhotosActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.gallery) {
-                    //intent = new Intent(MainActivity.this, .class);
-                    //startActivity(intent);
-                }
-                else if (id == R.id.form) {
-                    intent = new Intent(CreateJourneyActivity.this, CreateJourneyActivity.class);
-                    startActivity(intent);
-                }
-                return false;
+                NavigationUtils.navigate(item, CreateJourneyActivity.this);
+                return true;
             }
         });
     }
 
     public void validateJourney(View view) {
-        // on recupère les valeurs des champs
-        String title = journeyTitle.getText().toString();
-        String budget = journeyBudget.getText().toString();
-        String description = journeyDescription.getText().toString();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // on recupère les valeurs des champs
+                final String title = journeyTitle.getText().toString();
+                final String budget = journeyBudget.getText().toString();
+                final String description = journeyDescription.getText().toString();
 
-        if (title.isEmpty() || budget.isEmpty()) {
-            Toast.makeText(this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
-            return;
-        }
+                if (title.isEmpty() || budget.isEmpty()) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    return;
+                }
 
-        Journey journey = new Journey(title, Double.parseDouble(budget), description);
-        journeyOpenHelper.addJourney(journey);
+                final Journey journey = new Journey(title, Double.parseDouble(budget), description);
+                journeyOpenHelper.addJourney(journey);
 
-        Toast.makeText(this, "Voyage ajouté avec succès", Toast.LENGTH_SHORT).show();
-
-        // redirige vers la page d'accueil
-        finish();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Voyage ajouté avec succès", Toast.LENGTH_SHORT).show();
+                        // redirige vers la page d'accueil
+                        Intent intent = new Intent(CreateJourneyActivity.this, DisplayJourneyActivity.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }).start();
     }
+
 
 
 }

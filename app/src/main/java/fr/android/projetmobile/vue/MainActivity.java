@@ -34,30 +34,8 @@ public class MainActivity extends AppCompatActivity {
             bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    // Gérer les clics sur les éléments du menu ici
-                    int id = item.getItemId();
-                    Intent intent = null;
-                    if (id == R.id.voyage) {
-                        intent = new Intent(MainActivity.this, DisplayJourneyActivity.class);
-                        startActivity(intent);
-                    }
-                    else if (id == R.id.maps) {
-                        intent = new Intent(MainActivity.this, MapsActivity.class);
-                        startActivity(intent);
-                    }
-                    else if (id == R.id.take_photo) {
-                        intent = new Intent(MainActivity.this, PhotosActivity.class);
-                        startActivity(intent);
-                    }
-                    else if (id == R.id.gallery) {
-                        //intent = new Intent(MainActivity.this, .class);
-                        //startActivity(intent);
-                    }
-                    else if (id == R.id.form) {
-                        intent = new Intent(MainActivity.this, CreateJourneyActivity.class);
-                        startActivity(intent);
-                    }
-                    return false;
+                    NavigationUtils.navigate(item, MainActivity.this);
+                    return true;
                 }
             });
         }

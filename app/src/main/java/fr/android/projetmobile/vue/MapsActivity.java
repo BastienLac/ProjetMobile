@@ -51,30 +51,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Gérer les clics sur les éléments du menu ici
-                int id = item.getItemId();
-                Intent intent = null;
-                if (id == R.id.voyage) {
-                    intent = new Intent(MapsActivity.this, DisplayJourneyActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.maps) {
-                    intent = new Intent(MapsActivity.this, MapsActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.take_photo) {
-                    intent = new Intent(MapsActivity.this, PhotosActivity.class);
-                    startActivity(intent);
-                }
-                else if (id == R.id.gallery) {
-                    //intent = new Intent(MainActivity.this, .class);
-                    //startActivity(intent);
-                }
-                else if (id == R.id.form) {
-                    intent = new Intent(MapsActivity.this, CreateJourneyActivity.class);
-                    startActivity(intent);
-                }
-                return false;
+                NavigationUtils.navigate(item, MapsActivity.this);
+                return true;
             }
         });
     }
@@ -84,32 +62,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onResume() {
         super.onResume();
 
-        // 2 - register to receive the location events before the activity becomes visible
-        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 15000, 10, this);
+        // Lorsque l'app devient visible pour le user, on demande la location
+        lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        // 4- unregister from the service when the activity becomes invisible
-        lm.removeUpdates(this);
-    }
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+    // Carte Google Maps prête, ici on peut ajouter des marqueurs etc
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-
     }
 
     @Override
