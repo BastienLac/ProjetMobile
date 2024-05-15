@@ -8,11 +8,12 @@
     <string name="welcome_trip">Welcome to your Travel Journal</string>
     <string name="gallery">Gallery</string>
     <string name="photo">Photo</string>
-    <string name="Voyages">Voyage</string>
+    <string name="Voyages">Trip</string>
     <string name="maps">Maps</string>
     <string name="form">Form</string>
     <string name="Form">form</string>
     <string name="take_photo">Photo</string>
     <string name="prenez_une_photo">Take a picture !</string>
     <string name="appuyez">Click</string>
+    <string name="Choix_photo">Pick a photo</string>
 </resources>
