@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import fr.android.projetmobile.R;
 
@@ -40,5 +45,32 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+    }
+
+    protected void connectUser(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    EditText login = findViewById(R.id.journeyTitle);
+                    EditText password = findViewById(R.id.journeyBudget);
+                    Connection connection = DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/projetmobile", "root", "");
+
+                    String sql = "SELECT id FROM user WHERE login = " + login + " AND password= " + password;
+                    PreparedStatement statement = connection.prepareStatement(sql);
+                    ResultSet resultSet = statement.executeQuery();
+                    if (resultSet.next()) {
+                        //On connecte
+                    }
+                    else {
+                        // On rejete
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }}).start();
     }
 }
